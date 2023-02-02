@@ -6,8 +6,10 @@ function start(){
 }
 
 function playerChoice(){
-    // add event lister for each button, addEventLister (click, changeHand)
-    document.querySelector("button.paper").addEventListener("click", changeHand);
+    // add event lister for each button
+    document.querySelector("button.rock").addEventListener("click", shaking);
+    document.querySelector("button.scissors").addEventListener("click", shaking);
+    document.querySelector("button.paper").addEventListener("click", shaking);
     // makeRandomComputerChoice();
 }
 
@@ -16,17 +18,28 @@ function makeRandomComputerChoice(){
 // changeHand();
 }
 
-function changeHand(){
-    console.log('change hand')
-    document.querySelector("div#player2").classList.value = "player.paper");
+function shaking(){
+    console.log('shaking')
+    document.querySelector("div#player1").classList.add("shake");
+    document.querySelector("div#player2").classList.add("shake");
+    document.querySelector("div#player1").addEventListener("animationend", changeComputerHand);
+    document.querySelector("div#player2").addEventListener("animationend", changeUserHand);
+}
 
-    // document.querySelector("div#player2").classList.add("player.paper");
+function changeUserHand(){
+    console.log('change user hand');
+    document.querySelector("div#player2").classList.remove("shake");
 
-    // both hands shake 3 seconds
-    // player hand changes
-    // computer hand changes
+    document.querySelector("div#player2").classList.add("paper");
     determineWinner();
 }
+
+function changeComputerHand(){
+    console.log('change computer hand');
+    document.querySelector("div#player1").classList.remove("shake");
+}
+
+
 
 let winner =""
 
