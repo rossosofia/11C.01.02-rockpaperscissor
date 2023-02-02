@@ -5,6 +5,8 @@ function start(){
     playerChoice();
 }
 
+const element = document.querySelector('div#player2');
+
 const myArray = [
     "paper",
     "rock",
@@ -12,7 +14,7 @@ const myArray = [
 ];
 
 const randomComputerChoice = myArray[Math.floor(Math.random() * 3)];
-console.log(randomComputerChoice);
+// console.log(randomComputerChoice);
 
 
 function playerChoice(){
@@ -42,12 +44,10 @@ function changeUserHand(){
     determineWinner();
 }
 
-let winner = ""
-
 const user = "paper";
 const computer = randomComputerChoice;
-console.log(user);
-console.log(computer);
+// console.log(user);
+// console.log(computer);
 
 function determineWinner(){
     if(user === computer) {
